@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Message</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Roboto Mono', monospace;
+            background-color: #1a1a1a;
+            color: #00ff00;
+            gap: 20px;
+        }
+        .message {
+            font-size: 24px;
+            text-align: center;
+            padding: 20px;
+            max-width: 600px;
+            line-height: 1.5;
+            border: 2px solid #00ff00;
+            background-color: rgba(0, 255, 0, 0.1);
+            text-shadow: 0 0 5px #00ff00;
+            animation: glow 2s ease-in-out infinite;
+            cursor: pointer;
+        }
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px #00ff00; }
+            50% { box-shadow: 0 0 20px #00ff00; }
+            100% { box-shadow: 0 0 5px #00ff00; }
+        }
+        .red-button {
+            font-size: 20px;
+            text-align: center;
+            padding: 15px 30px;
+            border: 2px solid #ff0000;
+            background-color: rgba(255, 0, 0, 0.1);
+            color: #ff0000;
+            text-shadow: 0 0 5px #ff0000;
+            cursor: pointer;
+            animation: red-glow 2s ease-in-out infinite;
+            font-family: 'Roboto Mono', monospace;
+        }
+        @keyframes red-glow {
+            0% { box-shadow: 0 0 5px #ff0000; }
+            50% { box-shadow: 0 0 20px #ff0000; }
+            100% { box-shadow: 0 0 5px #ff0000; }
+        }
+        .spotify-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            position: relative;
+            width: 30vw;
+            min-width: 300px;
+        }
+        .spotify-iframe {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s ease forwards;
+            width: 100% !important;
+        }
+        .spotify-iframe:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            border: 3px solid #333;
+            border-radius: 50%;
+            border-top-color: #888;
+            animation: spin 1s linear infinite;
+            opacity: 0;
+        }
+        .loading.show {
+            opacity: 1;
+        }
+        @keyframes spin {
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="message" onclick="playAudio()">
+        Kuda idem mi s pyatachkom - bolwoi bolwoi secret
+    </div>
+    <div class="red-button" onclick="playAudio()">
+        Poluchit otvet
+    </div>
+    <audio id="secretAudio" preload="auto" src="answer.mp3">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <div class="spotify-container">
+        <div class="loading"></div>
+        <iframe class="spotify-iframe" style="border-radius:12px;" src="https://open.spotify.com/embed/track/7iXEBbmKRhxwkRnpxtr01k?utm_source=generator&theme=0" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        
+        <iframe class="spotify-iframe" style="border-radius:12px;" src="https://open.spotify.com/embed/track/06mRoGY78ugNp3sXlLLP2c?utm_source=generator" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    
+    <div style="font-size: 16px; margin-top: 15px; color: #888888;">cleanzenai@gmail.com</div>
+    
+    <script>
+        let audioElement = document.getElementById('secretAudio');
+        
+        // Safari requires user interaction before allowing audio playback
+        document.addEventListener('touchstart', initAudioContext);
+        document.addEventListener('click', initAudioContext);
+        
+        function initAudioContext() {
+            // Create an AudioContext instance if needed (for Safari)
+            if (typeof AudioContext !== 'undefined' || typeof webkitAudioContext !== 'undefined') {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                const audioContext = new AudioContext();
+            }
+        }
+
+        function playAudio() {
+            if (audioElement.readyState >= 2) {  // Check if audio is loaded
+                audioElement.currentTime = 0;
+                audioElement.play().catch(function(error) {
+                    console.log("Audio playback failed:", error);
+                });
+            } else {
+                audioElement.load();  // Try reloading the audio
+                audioElement.oncanplaythrough = function() {
+                    audioElement.play().catch(function(error) {
+                        console.log("Audio playback failed:", error);
+                    });
+                };
+            }
+        }
+
+        // Add loading animation handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const loading = document.querySelector('.loading');
+            const iframes = document.querySelectorAll('.spotify-iframe');
+            let loadedCount = 0;
+
+            function handleIframeLoad() {
+                loadedCount++;
+                if (loadedCount === iframes.length) {
+                    loading.style.opacity = '0';
+                    setTimeout(() => loading.style.display = 'none', 500);
+                }
+            }
+
+            loading.classList.add('show');
+            iframes.forEach(iframe => {
+                iframe.addEventListener('load', handleIframeLoad);
+            });
+        });
+    </script>
+</body>
+</html> 
