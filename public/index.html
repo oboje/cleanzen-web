@@ -1,76 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0BFM79DJHT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0BFM79DJHT');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secret Message</title>
+    <title>Clean Zen: AI Storage Cleaner - Free up Space, Delete Photo | Best Photo Cleaner App for iPhone</title>
+    <meta name="description" content="Clean Zen: AI Storage Cleaner - Free up Space, Delete Photo. Clean up your iPhone storage with intelligent AI. Remove duplicate photos, compress videos, secure private photos, and optimize storage. The best photo cleaner and gallery organizer for iOS.">
+    <meta name="keywords" content="AI storage cleaner, Clean Zen, free up space, delete photo, photo cleaner app iPhone, duplicate photo remover iPhone, free up space iPhone app, delete photos iPhone, best photo cleaner for iPhone, secure photo vault iPhone, video compressor iPhone, private photo storage app, photo storage cleaner iOS, gallery cleaner iPhone, remove similar photos iPhone, delete duplicate pictures iPhone, photo cleanup app iPhone, clean up iPhone storage, smart cleaner for iPhone, optimize iPhone storage app, AI photo organizer">
+    <meta name="author" content="Clean Zen">
+    <meta property="og:title" content="Clean Zen: AI Storage Cleaner - Free up Space, Delete Photo">
+    <meta property="og:description" content="Clean Zen: AI Storage Cleaner - Free up Space, Delete Photo. Clean up your iPhone storage with intelligent AI. Remove duplicate photos, compress videos, secure private photos, and optimize storage.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Clean Zen: AI Storage Cleaner - Free up Space, Delete Photo">
+    <meta name="twitter:description" content="Clean Zen: AI Storage Cleaner - Clean up your iPhone storage with intelligent AI. Remove duplicate photos, compress videos, secure private photos, and optimize storage.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            font-family: 'Roboto Mono', monospace;
+            font-family: 'Space Mono', monospace;
             background-color: #1a1a1a;
-            color: #00ff00;
+            color: #ffffff;
             gap: 20px;
+            padding: 20px 20px 40px 20px;
         }
-        .message {
-            font-size: 24px;
+        .app-title {
+            font-size: 36px;
+            font-weight: 700;
             text-align: center;
-            padding: 20px;
-            max-width: 600px;
-            line-height: 1.5;
-            border: 2px solid #00ff00;
-            background-color: rgba(0, 255, 0, 0.1);
-            text-shadow: 0 0 5px #00ff00;
-            animation: glow 2s ease-in-out infinite;
-            cursor: pointer;
+            color: #ffffff;
+            margin-bottom: 10px;
         }
-        @keyframes glow {
-            0% { box-shadow: 0 0 5px #00ff00; }
-            50% { box-shadow: 0 0 20px #00ff00; }
-            100% { box-shadow: 0 0 5px #00ff00; }
-        }
-        .red-button {
+        .app-subtitle {
             font-size: 20px;
+            font-weight: 400;
             text-align: center;
-            padding: 15px 30px;
-            border: 2px solid #ff0000;
-            background-color: rgba(255, 0, 0, 0.1);
-            color: #ff0000;
-            text-shadow: 0 0 5px #ff0000;
-            cursor: pointer;
-            animation: red-glow 2s ease-in-out infinite;
-            font-family: 'Roboto Mono', monospace;
+            color: #888888;
+            margin-bottom: 20px;
         }
-        @keyframes red-glow {
-            0% { box-shadow: 0 0 5px #ff0000; }
-            50% { box-shadow: 0 0 20px #ff0000; }
-            100% { box-shadow: 0 0 5px #ff0000; }
-        }
-        .spotify-container {
+        .screenshots-container {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 50px;
             align-items: center;
-            position: relative;
-            width: 30vw;
-            min-width: 300px;
+            max-width: 100%;
+            width: 100%;
         }
-        .spotify-iframe {
+        .screenshot-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 350px;
+            width: 100%;
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeIn 0.5s ease forwards;
-            width: 100% !important;
+            animation: fadeIn 0.8s ease forwards;
         }
-        .spotify-iframe:nth-child(2) {
+        .screenshot-item:nth-child(1) {
             animation-delay: 0.2s;
+        }
+        .screenshot-item:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+        .screenshot-item:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+        .screenshot {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+        .screenshot-description {
+            text-align: center;
+            padding: 0 20px;
+        }
+        .screenshot-description h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+        .screenshot-description p {
+            font-size: 14px;
+            color: #888888;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .screenshot-description ul {
+            font-size: 14px;
+            color: #888888;
+            line-height: 1.8;
+            margin: 0;
+            padding-left: 20px;
+            text-align: left;
+            list-style-type: disc;
+        }
+        .screenshot-description li {
+            margin-bottom: 8px;
         }
         @keyframes fadeIn {
             to {
@@ -78,99 +121,207 @@
                 transform: translateY(0);
             }
         }
-        .loading {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 40px;
-            height: 40px;
-            border: 3px solid #333;
-            border-radius: 50%;
-            border-top-color: #888;
-            animation: spin 1s linear infinite;
-            opacity: 0;
-        }
-        .loading.show {
-            opacity: 1;
-        }
-        @keyframes spin {
-            to {
-                transform: translate(-50%, -50%) rotate(360deg);
+        @media (min-width: 768px) {
+            .screenshots-container {
+                flex-direction: row;
+                justify-content: center;
+                gap: 40px;
+                flex-wrap: wrap;
             }
+        }
+        #loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        #loader-container.hidden {
+            display: none;
+        }
+        .loader-text {
+            font-size: 16px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .loader-progress {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        #main-content {
+            display: none;
+        }
+        #main-content.visible {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <div class="message" onclick="playAudio()">
-        Kuda idem mi s pyatachkom - bolwoi bolwoi secret
+    <div id="loader-container">
+        <div class="loader-text">Loading</div>
+        <div class="loader-progress">0%</div>
     </div>
-    <div class="red-button" onclick="playAudio()">
-        Poluchit otvet
-    </div>
-    <audio id="secretAudio" preload="auto" src="answer.mp3">
-        Your browser does not support the audio element.
-    </audio>
     
-    <div class="spotify-container">
-        <div class="loading"></div>
-        <iframe class="spotify-iframe" style="border-radius:12px;" src="https://open.spotify.com/embed/track/7iXEBbmKRhxwkRnpxtr01k?utm_source=generator&theme=0" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <div id="main-content">
+        <div class="app-title">Clean Zen: AI Storage Cleaner</div>
+        <div class="app-subtitle">Free up Space, Delete Photo</div>
         
-        <iframe class="spotify-iframe" style="border-radius:12px;" src="https://open.spotify.com/embed/track/06mRoGY78ugNp3sXlLLP2c?utm_source=generator" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <div class="screenshots-container">
+            <div class="screenshot-item">
+                <img data-src="1-compressed.jpg" alt="Cleanzen App Screenshot 1" class="screenshot">
+                <div class="screenshot-description">
+                    <h3>Free Up Space on iPhone Photos</h3>
+                    <ul>
+                        <li>Delete duplicate photos and remove similar photos on iPhone</li>
+                        <li>Clean up iPhone storage without deleting apps</li>
+                        <li>Free up gigabytes of space instantly with intelligent duplicate detection</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="screenshot-item">
+                <img data-src="2-compressed.jpg" alt="Cleanzen App Screenshot 2" class="screenshot">
+                <div class="screenshot-description">
+                    <h3>Compress Videos & Delete Screenshots</h3>
+                    <ul>
+                        <li>Compress videos on iPhone to save valuable storage</li>
+                        <li>Delete screenshots automatically with smart cleanup</li>
+                        <li>Optimize iPhone storage for free while keeping the photos you love</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="screenshot-item">
+                <img data-src="3-compressed.jpg" alt="Cleanzen App Screenshot 3" class="screenshot">
+                <div class="screenshot-description">
+                    <h3>Secure Private Photos & Organize Library</h3>
+                    <ul>
+                        <li>Secure private photos on iPhone with advanced protection</li>
+                        <li>Organize photo library on iPhone easily</li>
+                        <li>Clean iPhone photos easily with smart sorting and filtering tools</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div style="font-size: 16px; margin-top: 15px; color: #888888;">cleanzenai@gmail.com</div>
     </div>
-    
-    <div style="font-size: 16px; margin-top: 15px; color: #888888;">cleanzenai@gmail.com</div>
     
     <script>
-        let audioElement = document.getElementById('secretAudio');
-        
-        // Safari requires user interaction before allowing audio playback
-        document.addEventListener('touchstart', initAudioContext);
-        document.addEventListener('click', initAudioContext);
-        
-        function initAudioContext() {
-            // Create an AudioContext instance if needed (for Safari)
-            if (typeof AudioContext !== 'undefined' || typeof webkitAudioContext !== 'undefined') {
-                const AudioContext = window.AudioContext || window.webkitAudioContext;
-                const audioContext = new AudioContext();
-            }
-        }
-
-        function playAudio() {
-            if (audioElement.readyState >= 2) {  // Check if audio is loaded
-                audioElement.currentTime = 0;
-                audioElement.play().catch(function(error) {
-                    console.log("Audio playback failed:", error);
+        // Image preloading with real progress tracking using XMLHttpRequest
+        (function() {
+            const loaderContainer = document.getElementById('loader-container');
+            const loaderProgress = document.querySelector('.loader-progress');
+            const mainContent = document.getElementById('main-content');
+            const imageElements = document.querySelectorAll('.screenshot-item .screenshot');
+            
+            const imageSources = ['1-compressed.jpg', '2-compressed.jpg', '3-compressed.jpg'];
+            const imageProgress = {};
+            const loadedImages = {};
+            let completedCount = 0;
+            
+            imageSources.forEach(src => {
+                imageProgress[src] = 0;
+            });
+            
+            function updateProgress() {
+                let totalProgress = 0;
+                imageSources.forEach(src => {
+                    totalProgress += imageProgress[src];
                 });
-            } else {
-                audioElement.load();  // Try reloading the audio
-                audioElement.oncanplaythrough = function() {
-                    audioElement.play().catch(function(error) {
-                        console.log("Audio playback failed:", error);
-                    });
-                };
+                
+                const percentage = Math.round(totalProgress / imageSources.length);
+                loaderProgress.textContent = percentage + '%';
             }
-        }
-
-        // Add loading animation handling
-        document.addEventListener('DOMContentLoaded', function() {
-            const loading = document.querySelector('.loading');
-            const iframes = document.querySelectorAll('.spotify-iframe');
-            let loadedCount = 0;
-
-            function handleIframeLoad() {
-                loadedCount++;
-                if (loadedCount === iframes.length) {
-                    loading.style.opacity = '0';
-                    setTimeout(() => loading.style.display = 'none', 500);
+            
+            function checkAllLoaded() {
+                console.log('checkAllLoaded called, completedCount:', completedCount, 'total:', imageSources.length);
+                if (completedCount === imageSources.length) {
+                    console.log('All images loaded, displaying content');
+                    imageElements.forEach((img, index) => {
+                        const url = loadedImages[imageSources[index]];
+                        if (url) {
+                            img.src = url;
+                            console.log('Set img', index, 'src to', url);
+                        } else {
+                            console.log('No URL for img', index, imageSources[index]);
+                            img.src = imageSources[index];
+                        }
+                    });
+                    
+                    setTimeout(() => {
+                        loaderContainer.classList.add('hidden');
+                        mainContent.classList.add('visible');
+                        console.log('Loader hidden, content visible');
+                    }, 200);
                 }
             }
-
-            loading.classList.add('show');
-            iframes.forEach(iframe => {
-                iframe.addEventListener('load', handleIframeLoad);
+            
+            function loadImageWithProgress(src) {
+                const xhr = new XMLHttpRequest();
+                const cacheBuster = '?t=' + new Date().getTime();
+                xhr.open('GET', src + cacheBuster, true);
+                xhr.responseType = 'blob';
+                xhr.setRequestHeader('Cache-Control', 'no-cache');
+                
+                xhr.onloadstart = function() {
+                    console.log('Started loading:', src);
+                };
+                
+                xhr.onprogress = function(e) {
+                    if (e.lengthComputable) {
+                        const progress = (e.loaded / e.total) * 100;
+                        imageProgress[src] = progress;
+                        console.log(src, 'progress:', progress.toFixed(1) + '%', 'loaded:', e.loaded, 'total:', e.total);
+                        updateProgress();
+                    } else {
+                        console.log(src, 'progress event but not computable, loaded:', e.loaded);
+                    }
+                };
+                
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        const blob = xhr.response;
+                        const url = URL.createObjectURL(blob);
+                        loadedImages[src] = url;
+                        imageProgress[src] = 100;
+                        completedCount++;
+                        console.log('Completed loading:', src, 'total completed:', completedCount);
+                        updateProgress();
+                        checkAllLoaded();
+                    } else {
+                        imageProgress[src] = 100;
+                        completedCount++;
+                        updateProgress();
+                        checkAllLoaded();
+                    }
+                };
+                
+                xhr.onerror = function() {
+                    console.log('Error loading:', src);
+                    imageProgress[src] = 100;
+                    completedCount++;
+                    updateProgress();
+                    checkAllLoaded();
+                };
+                
+                xhr.send();
+            }
+            
+            imageSources.forEach(src => {
+                loadImageWithProgress(src);
             });
-        });
+        })();
     </script>
 </body>
 </html> 
