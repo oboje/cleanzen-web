@@ -34,10 +34,18 @@
             justify-content: center;
             align-items: center;
             font-family: 'Space Mono', monospace;
-            background-color: #1a1a1a;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 25%, #16213e 50%, #1a1a2e 75%, #0a0a1a 100%);
             color: #ffffff;
             gap: 20px;
             padding: 20px 20px 40px 20px;
+        }
+        .app-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 22.5%;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(59, 130, 246, 0.2);
         }
         .app-title {
             font-size: 36px;
@@ -50,31 +58,8 @@
             font-size: 20px;
             font-weight: 400;
             text-align: center;
-            color: #888888;
-            margin-bottom: 40px;
-        }
-        .app-store-link {
-            font-size: 18px;
-            font-weight: 700;
-            text-align: center;
             color: #ffffff;
-            text-decoration: none;
-            margin-bottom: 10px;
-        }
-        .app-store-link a {
-            color: #ffffff;
-            text-decoration: underline;
-            transition: opacity 0.3s ease;
-        }
-        .app-store-link a:hover {
-            opacity: 0.8;
-        }
-        .qr-code {
-            max-width: 200px;
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         .feedback-section {
             font-size: 16px;
@@ -150,15 +135,24 @@
         }
         .screenshot-description ul {
             font-size: 14px;
-            color: #888888;
+            color: #bfdbfe;
             line-height: 1.8;
             margin: 0;
-            padding-left: 20px;
+            padding: 20px 20px 20px 40px;
             text-align: left;
             list-style-type: disc;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
         .screenshot-description li {
             margin-bottom: 8px;
+        }
+        .screenshot-description li:last-child {
+            margin-bottom: 0;
         }
         @keyframes fadeIn {
             to {
@@ -209,6 +203,84 @@
             align-items: center;
             width: 100%;
         }
+        .download-button {
+            display: inline-block;
+            padding: 16px 40px;
+            font-size: 18px;
+            font-weight: 700;
+            font-family: 'Space Mono', monospace;
+            text-decoration: none;
+            color: #ffffff;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #1e3a8a 100%);
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            margin: 20px 0 60px 0;
+            text-align: center;
+        }
+        .download-button:hover {
+            background: linear-gradient(135deg, #2563eb 0%, #60a5fa 50%, #2563eb 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+            border-color: rgba(96, 165, 250, 0.5);
+        }
+        .download-button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(59, 130, 246, 0.4);
+        }
+        .qr-bubble {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            border-radius: 16px;
+            padding: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(59, 130, 246, 0.2);
+            opacity: 0;
+            transform: translateY(20px) scale(0.9);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            pointer-events: none;
+            z-index: 1000;
+            max-width: 170px;
+            text-align: center;
+        }
+        .qr-bubble.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: all;
+        }
+        .qr-bubble-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .qr-bubble-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        @media (max-width: 768px) {
+            .qr-bubble {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px;
+                max-width: 140px;
+            }
+            .qr-bubble-image {
+                width: 115px;
+                height: 115px;
+            }
+            .qr-bubble-title {
+                font-size: 13px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -218,18 +290,27 @@
     </div>
     
     <div id="main-content">
+        <img src="app-icon.jpg" alt="Clean Zen App Icon" class="app-icon">
         <div class="app-title">Clean Zen: AI Storage Cleaner</div>
-        <div class="app-subtitle">Free up Space, Delete Photo</div>
+        <div class="app-subtitle">Completely free and ideal for freeing up space and deleting photos</div>
         
-        <div class="app-store-link">Download new version <a href="https://apps.apple.com/us/app/clean-zen-ai-storage-cleaner/id6744900833" target="_blank">v1.1 on App Store</a></div>
-        
-        <div style="font-size: 18px; color: #888888; margin-top: 5px; margin-bottom: 15px;">or scan QR code:</div>
-        
-        <img src="qr.jpg" alt="QR Code to Download Clean Zen App" class="qr-code">
+        <a href="https://apps.apple.com/us/app/clean-zen-ai-storage-cleaner/id6744900833" target="_blank" class="download-button">Download from App Store</a>
         
         <div class="screenshots-container">
             <div class="screenshot-item">
                 <img data-src="1-compressed.jpg" alt="Cleanzen App Screenshot 1" class="screenshot">
+                <div class="screenshot-description">
+                    <h3>Secure Private Photos & Organize Library</h3>
+                    <ul>
+                        <li>Secure private photos on iPhone with advanced protection</li>
+                        <li>Organize photo library on iPhone easily</li>
+                        <li>Clean iPhone photos easily with smart sorting and filtering tools</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="screenshot-item">
+                <img data-src="2-compressed.jpg" alt="Cleanzen App Screenshot 2" class="screenshot">
                 <div class="screenshot-description">
                     <h3>Free Up Space on iPhone Photos</h3>
                     <ul>
@@ -241,7 +322,7 @@
             </div>
             
             <div class="screenshot-item">
-                <img data-src="2-compressed.jpg" alt="Cleanzen App Screenshot 2" class="screenshot">
+                <img data-src="3-compressed.jpg" alt="Cleanzen App Screenshot 3" class="screenshot">
                 <div class="screenshot-description">
                     <h3>Compress Videos & Delete Screenshots</h3>
                     <ul>
@@ -251,27 +332,17 @@
                     </ul>
                 </div>
             </div>
-            
-            <div class="screenshot-item">
-                <img data-src="3-compressed.jpg" alt="Cleanzen App Screenshot 3" class="screenshot">
-                <div class="screenshot-description">
-                    <h3>Secure Private Photos & Organize Library</h3>
-                    <ul>
-                        <li>Secure private photos on iPhone with advanced protection</li>
-                        <li>Organize photo library on iPhone easily</li>
-                        <li>Clean iPhone photos easily with smart sorting and filtering tools</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
-        <div class="feedback-section">
-            Feel free to send any feedback or suggestion to <a href="mailto:cleanzenai@gmail.com" class="email-link">cleanzenai@gmail.com</a>
         </div>
         
         <div class="footer">
-            - 2025 -
+            <a href="mailto:cleanzenai@gmail.com" class="email-link">cleanzenai@gmail.com</a>
+            <div style="margin-top: 10px;">2025</div>
         </div>
+    </div>
+    
+    <div id="qr-bubble" class="qr-bubble">
+        <img src="qr.jpg" alt="QR Code to Download Clean Zen App" class="qr-bubble-image">
+        <div class="qr-bubble-title">Download the app!</div>
     </div>
     
     <script>
@@ -378,6 +449,25 @@
             imageSources.forEach(src => {
                 loadImageWithProgress(src);
             });
+        })();
+        
+        // QR bubble scroll functionality
+        (function() {
+            const qrBubble = document.getElementById('qr-bubble');
+            const scrollThreshold = 300;
+            
+            function handleScroll() {
+                const scrollPosition = window.scrollY || window.pageYOffset;
+                
+                if (scrollPosition > scrollThreshold) {
+                    qrBubble.classList.add('visible');
+                } else {
+                    qrBubble.classList.remove('visible');
+                }
+            }
+            
+            window.addEventListener('scroll', handleScroll);
+            handleScroll();
         })();
     </script>
 </body>
