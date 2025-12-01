@@ -51,7 +51,52 @@
             font-weight: 400;
             text-align: center;
             color: #888888;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        .app-store-link {
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            color: #ffffff;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+        .app-store-link a {
+            color: #ffffff;
+            text-decoration: underline;
+            transition: opacity 0.3s ease;
+        }
+        .app-store-link a:hover {
+            opacity: 0.8;
+        }
+        .qr-code {
+            max-width: 200px;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .feedback-section {
+            font-size: 16px;
+            margin-top: 30px;
+            color: #888888;
+            text-align: center;
+            max-width: 500px;
+        }
+        .email-link {
+            color: #ffffff;
+            text-decoration: underline;
+            transition: opacity 0.3s ease;
+        }
+        .email-link:hover {
+            opacity: 0.8;
+        }
+        .footer {
+            font-size: 14px;
+            color: #666666;
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
         }
         .screenshots-container {
             display: flex;
@@ -176,6 +221,12 @@
         <div class="app-title">Clean Zen: AI Storage Cleaner</div>
         <div class="app-subtitle">Free up Space, Delete Photo</div>
         
+        <div class="app-store-link">Download new version <a href="https://apps.apple.com/us/app/clean-zen-ai-storage-cleaner/id6744900833" target="_blank">v1.1 on App Store</a></div>
+        
+        <div style="font-size: 18px; color: #888888; margin-top: 5px; margin-bottom: 15px;">or scan QR code:</div>
+        
+        <img src="qr.jpg" alt="QR Code to Download Clean Zen App" class="qr-code">
+        
         <div class="screenshots-container">
             <div class="screenshot-item">
                 <img data-src="1-compressed.jpg" alt="Cleanzen App Screenshot 1" class="screenshot">
@@ -214,7 +265,13 @@
             </div>
         </div>
         
-        <div style="font-size: 16px; margin-top: 15px; color: #888888;">cleanzenai@gmail.com</div>
+        <div class="feedback-section">
+            Feel free to send any feedback or suggestion to <a href="mailto:cleanzenai@gmail.com" class="email-link">cleanzenai@gmail.com</a>
+        </div>
+        
+        <div class="footer">
+            - 2025 -
+        </div>
     </div>
     
     <script>
